@@ -1,0 +1,228 @@
+/* =====================
+   INDEX.CSS — VG Universe
+   Bootstrap maneja grid, flex, spacing y responsivo.
+   Este archivo sólo define lo que Bootstrap no puede: colores, tipografía, animaciones y componentes custom.
+   ===================== */
+
+:root {
+  --bb-green:   #39d353;
+  --bcs-yellow: #f5c518;
+  --bcs-orange: #e87c1e;
+  --ec-red:     #c0392b;
+  --ec-warm:    #a0522d;
+  --text-light: #e8e8e8;
+  --text-muted: #888;
+}
+
+html { scroll-behavior: smooth; }
+body { background: #0d0d0d; color: var(--text-light); font-family: 'Barlow', sans-serif; }
+
+/* ── HEADER ── */
+header {
+  position: relative;
+  min-height: 38vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, #0d0d0d 0%, #111 40%, #0a1a0a 100%);
+  border-bottom: 1px solid #1e1e1e;
+  overflow: hidden;
+}
+.header-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.header-inner { position: relative; z-index: 1; padding: 2rem; }
+.header-eyebrow {
+  font-family: 'Barlow', sans-serif; font-style: italic; font-weight: 300;
+  font-size: 1rem; letter-spacing: 0.3em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.header-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 1rem;
+}
+.header-sub {
+  font-size: 1rem; font-weight: 300; color: var(--text-muted);
+  font-style: italic; max-width: 480px; margin: 0 auto; line-height: 1.6;
+}
+
+/* ── NAVBAR ── */
+.vg-navbar {
+  background: rgba(10,10,10,0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1e1e1e;
+  padding-top: 0.9rem; padding-bottom: 0.9rem;
+}
+.nav-brand {
+  font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-muted) !important; text-decoration: none; transition: color 0.2s;
+}
+.nav-brand:hover { color: #fff !important; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #fff; }
+.nav-contact { color: var(--bb-green) !important; }
+.nav-contact:hover { color: #fff !important; }
+
+/* Hamburguesa custom */
+.vg-toggler {
+  border: 1px solid #333; background: transparent;
+  padding: 6px 8px; border-radius: 3px;
+}
+.vg-toggler:focus { box-shadow: none; outline: none; }
+.toggler-bar {
+  display: block; width: 22px; height: 2px;
+  background: var(--text-muted); margin: 4px 0;
+  transition: background 0.2s;
+}
+.vg-toggler:hover .toggler-bar { background: #fff; }
+
+/* Collapse mobile */
+@media (max-width: 767px) {
+  .nav-links {
+    flex-direction: column; align-items: flex-start;
+    gap: 0.75rem; padding: 1rem 0;
+  }
+}
+
+/* ── CARDS SECTION ── */
+.cards-section { padding: 4rem 0 5rem; }
+.section-label {
+  font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--text-muted); text-align: center; margin-bottom: 2.5rem;
+}
+
+/* ── SHOW CARD ── */
+.show-card {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: #111; border-radius: 4px; overflow: hidden;
+  text-decoration: none; color: inherit;
+  border: 1px solid #1e1e1e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.show-card:hover { transform: translateY(-6px); }
+.bb-card:hover  { border-color: var(--bb-green);  box-shadow: 0 16px 48px rgba(57,211,83,0.15); }
+.bcs-card:hover { border-color: var(--bcs-yellow); box-shadow: 0 16px 48px rgba(245,197,24,0.15); }
+.ec-card:hover  { border-color: var(--ec-red);     box-shadow: 0 16px 48px rgba(192,57,43,0.15); }
+
+.card-glow { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.bb-glow  { background: var(--bb-green); }
+.bcs-glow { background: linear-gradient(90deg, var(--bcs-yellow), var(--bcs-orange)); }
+.ec-glow  { background: linear-gradient(90deg, var(--ec-red), var(--ec-warm)); }
+
+/* Logo transition BB */
+.bb-logo-container { position: relative; display: flex; justify-content: center; align-items: center; }
+.bb-logo-container .show-logo { transition: opacity 0.4s ease-in-out; }
+.logo-green { position: absolute; opacity: 0; }
+.bb-card:hover .logo-gray  { opacity: 0; }
+.bb-card:hover .logo-green { opacity: 1; }
+
+.card-img-wrap {
+  background: #0a0a0a; padding: 2rem 2rem 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 120px; border-bottom: 1px solid #1a1a1a;
+}
+.show-logo {
+  max-width: 220px; max-height: 80px; object-fit: contain;
+  filter: brightness(0.95); transition: filter 0.3s;
+}
+.show-card:hover .show-logo { filter: brightness(1.1); }
+.bcs-logo { filter: brightness(0) invert(1); }
+.ec-logo  { filter: brightness(0) invert(1); }
+
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+
+.card-tag {
+  font-family: 'Oswald', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 2px; width: fit-content;
+}
+.bb-tag  { background: rgba(57,211,83,0.12);  color: var(--bb-green); }
+.bcs-tag { background: rgba(245,197,24,0.12); color: var(--bcs-yellow); }
+.ec-tag  { background: rgba(192,57,43,0.12);  color: #e05c4a; }
+
+.card-title {
+  font-family: 'Oswald', sans-serif; font-size: 1.6rem;
+  font-weight: 600; letter-spacing: 0.03em; color: #fff;
+}
+.card-desc { font-size: 0.9rem; font-weight: 300; line-height: 1.65; color: #aaa; flex: 1; }
+.card-meta {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  font-size: 0.75rem; color: var(--text-muted);
+  font-family: 'Oswald', sans-serif; letter-spacing: 0.05em;
+  padding-top: 0.5rem; border-top: 1px solid #1e1e1e;
+}
+.imdb-badge { color: var(--bcs-yellow); }
+.card-cta {
+  display: inline-block; margin-top: 0.5rem;
+  font-family: 'Oswald', sans-serif; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  transition: letter-spacing 0.2s;
+}
+.show-card:hover .card-cta { letter-spacing: 0.3em; }
+.bb-cta  { color: var(--bb-green); }
+.bcs-cta { color: var(--bcs-yellow); }
+.ec-cta  { color: #e05c4a; }
+
+/* ── CONTACTO ── */
+.contact-section {
+  padding: 5rem 0;
+  border-top: 1px solid #1a1a1a;
+  background: #0a0a0a;
+}
+.contact-title {
+  font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600; color: #fff; letter-spacing: 0.03em; margin-bottom: 0.4rem;
+}
+.contact-sub {
+  font-size: 0.95rem; font-weight: 300; font-style: italic;
+  color: var(--text-muted); margin-bottom: 0.5rem;
+}
+.vg-label {
+  font-family: 'Oswald', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--bb-green);
+}
+.vg-input {
+  background: #111; border: 1px solid #2a2a2a; color: #e4e4e4;
+  border-radius: 3px; font-family: 'Barlow', sans-serif; font-weight: 300;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.vg-input:focus {
+  background: #111; color: #e4e4e4;
+  border-color: var(--bb-green);
+  box-shadow: 0 0 0 2px rgba(57,211,83,0.12);
+  outline: none;
+}
+.vg-input::placeholder { color: #444; }
+.vg-btn {
+  font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--bb-green); border: 1px solid var(--bb-green);
+  background: transparent; border-radius: 2px;
+  padding: 0.6rem 1.8rem;
+  transition: background 0.2s, color 0.2s, letter-spacing 0.2s;
+}
+.vg-btn:hover { background: var(--bb-green); color: #000; letter-spacing: 0.35em; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid #1a1a1a;
+  color: var(--text-muted); font-size: 0.8rem; font-weight: 300;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.footer-links { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }

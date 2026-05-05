@@ -1,0 +1,184 @@
+/* =====================
+   BCS.CSS — Better Call Saul
+   Bootstrap maneja grid, spacing y responsivo.
+   Aquí solo: colores, tipografía custom, animaciones y componentes únicos.
+   ===================== */
+
+:root {
+  --yellow:     #f5c518;
+  --orange:     #e87c1e;
+  --orange-dim: #c4621a;
+  --bg:         #0a0a08;
+  --border:     #222218;
+  --text:       #e8e4d8;
+  --muted:      #706a58;
+  --card-bg:    #111108;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; }
+
+/* ── NAVBAR ── */
+.vg-navbar {
+  background: rgba(10,10,8,0.96) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--orange);
+  padding-top: 0.9rem; padding-bottom: 0.9rem;
+}
+.nav-brand {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted) !important; text-decoration: none; transition: color 0.2s;
+}
+.nav-brand:hover { color: var(--yellow) !important; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s; padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--yellow); }
+.nav-links a.active { color: var(--yellow); border-bottom: 1px solid var(--yellow); }
+
+.vg-toggler { border: 1px solid #333; background: transparent; padding: 6px 8px; border-radius: 3px; }
+.vg-toggler:focus { box-shadow: none; outline: none; }
+.toggler-bar { display: block; width: 22px; height: 2px; background: var(--muted); margin: 4px 0; transition: background 0.2s; }
+.vg-toggler:hover .toggler-bar { background: var(--yellow); }
+
+@media (max-width: 767px) {
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 0; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 50vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: #06060400;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(245,197,24,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(232,124,30,0.05) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0a08 0%, #080806 100%);
+}
+.hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(245,197,24,0.015) 2px, rgba(245,197,24,0.015) 4px);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 4rem 2rem; gap: 1.2rem;
+}
+.hero-eyebrow { font-family: 'Oswald', sans-serif; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted); }
+.hero-logo {
+  max-width: 360px; width: 90%;
+  animation: logoFadeIn 0.8s ease both; transition: filter 0.3s;
+}
+.hero-logo:hover { filter: invert(1) sepia(1) saturate(0) brightness(1.1); }
+@keyframes logoFadeIn { from { opacity:0; transform: scale(0.95); } to { opacity:1; transform: scale(1); } }
+.hero-tagline { font-style: italic; font-weight: 300; font-size: 1.05rem; color: var(--yellow); letter-spacing: 0.05em; }
+.hero-stats { display: flex; align-items: center; gap: 1.2rem; margin-top: 0.5rem; flex-wrap: wrap; justify-content: center; }
+.stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-num { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.stat-div { width: 1px; height: 28px; background: var(--border); }
+
+/* ── SECTION TITLES ── */
+.section-title {
+  font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow);
+  margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── SINOPSIS ── */
+.sinopsis-section { padding: 4rem 0 3rem; border-bottom: 1px solid var(--border); }
+.sinopsis-text { font-size: 1rem; line-height: 1.8; font-weight: 300; color: #bbb; max-width: 720px; }
+.sinopsis-text em { color: var(--yellow); font-style: normal; font-weight: 400; }
+
+/* ── TRIVIA ASIDE ── */
+.trivia-box {
+  background: #0d0d0a; border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 6px; padding: 1.5rem; height: 100%;
+}
+.trivia-title {
+  font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--yellow); margin-bottom: 1.2rem;
+}
+.trivia-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+.trivia-list li {
+  font-size: 0.82rem; line-height: 1.6; color: var(--muted); font-weight: 300;
+  padding-left: 1rem; border-left: 1px solid #2a2a20;
+}
+.trivia-list li em { color: var(--yellow); font-style: normal; }
+
+/* ── PERSONAJES ── */
+.personajes-section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+
+.char-card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
+  overflow: hidden; position: relative;
+  display: flex; flex-direction: column; height: 100%;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.char-card:hover {
+  border-color: var(--orange); transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(232,124,30,0.12);
+}
+.char-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--yellow), var(--orange));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+}
+.char-card:hover::before { transform: scaleX(1); }
+.char-img-wrap { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #0a0a08; }
+.char-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  filter: sepia(15%) contrast(1.05);
+  transition: filter 0.4s, transform 0.4s; display: block;
+}
+.char-card:hover .char-img { filter: sepia(0%) contrast(1.1); transform: scale(1.04); }
+.char-info { padding: 1rem 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.char-name { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; }
+.char-alias { font-family: 'Barlow', sans-serif; font-style: italic; font-size: 0.8rem; color: var(--yellow); font-weight: 300; }
+.char-desc { font-size: 0.8rem; line-height: 1.6; color: var(--muted); font-weight: 300; margin-top: 0.4rem; }
+
+/* ── TEMPORADAS ── */
+.temporadas-section { padding: 4rem 0 5rem; }
+.seasons-list { display: flex; flex-direction: column; }
+.season-item {
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid var(--border); transition: background 0.2s;
+}
+.season-item:first-child { border-top: 1px solid var(--border); }
+.season-item:hover { background: rgba(245,197,24,0.03); }
+.season-num {
+  font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700;
+  color: var(--orange); letter-spacing: 0.1em;
+  min-width: 60px; display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--border); padding: 1.5rem 1rem;
+}
+.season-body { padding: 1.5rem; flex: 1; }
+.season-title {
+  font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600;
+  color: #fff; letter-spacing: 0.03em; margin-bottom: 0.4rem;
+  display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap;
+}
+.season-year { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: var(--muted); font-weight: 300; }
+.season-desc { font-size: 0.88rem; line-height: 1.65; color: #777; font-weight: 300; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 2rem;
+  border-top: 2px solid var(--orange);
+  color: var(--muted); font-size: 0.8rem; font-weight: 300;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.footer-links { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--yellow); }
