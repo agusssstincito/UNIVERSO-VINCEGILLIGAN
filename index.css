@@ -1,8 +1,4 @@
-/* =====================
-   INDEX.CSS — VG Universe
-   Bootstrap maneja grid, flex, spacing y responsivo.
-   Este archivo sólo define lo que Bootstrap no puede: colores, tipografía, animaciones y componentes custom.
-   ===================== */
+
 
 :root {
   --bb-green:   #39d353;
