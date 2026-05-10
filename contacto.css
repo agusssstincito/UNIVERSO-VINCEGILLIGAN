@@ -161,6 +161,16 @@ body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-se
   color: #444;
 }
 
+.vg-range::-webkit-slider-thumb {
+  background: var(--green);
+}
+.vg-range::-moz-range-thumb {
+  background: var(--green);
+}
+.vg-range::-webkit-slider-runnable-track {
+  background: #2a2a2a;
+}
+
 .contact-btn {
   background-color: transparent;
   color: var(--green);

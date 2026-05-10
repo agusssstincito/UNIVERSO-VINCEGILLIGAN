@@ -202,6 +202,17 @@ header {
   outline: none;
 }
 .vg-input::placeholder { color: #444; }
+
+.vg-range::-webkit-slider-thumb {
+  background: var(--bb-green);
+}
+.vg-range::-moz-range-thumb {
+  background: var(--bb-green);
+}
+.vg-range::-webkit-slider-runnable-track {
+  background: #2a2a2a;
+}
+
 .vg-btn {
   font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.25em; text-transform: uppercase;
