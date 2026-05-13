@@ -1,9 +1,9 @@
 :root {
-  --green:      #39d353;
-  --green-dim:  #1f7a30;
-  --green-glow: rgba(57, 211, 83, 0.18);
+  --green:      #136910;
+  --green-dim:  #e5ff00;
+  --green-glow: rgb(245, 209, 6);
   --bg:         #080808;
-  --bg2:        #0f0f0f;
+  --bg2:        #ffffff;
   --border:     #1e1e1e;
   --text:       #e4e4e4;
   --muted:      #777;
