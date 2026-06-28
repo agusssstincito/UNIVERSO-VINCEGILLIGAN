@@ -1,0 +1,298 @@
+:root {
+  --green:      #39d353;
+  --green-dim:  #1f7a30;
+  --green-glow: rgba(57, 211, 83, 0.18);
+  --bg:         #080808;
+  --bg2:        #0f0f0f;
+  --border:     #1e1e1e;
+  --text:       #e4e4e4;
+  --muted:      #777;
+  --card-bg:    #111;
+}
+ 
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; }
+ 
+/* ── NAVBAR ── */
+.vg-navbar {
+  background: rgba(8,8,8,0.96) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding-top: 0.9rem; padding-bottom: 0.9rem;
+}
+.nav-brand {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted) !important; text-decoration: none; transition: color 0.2s;
+}
+.nav-brand:hover { color: #fff !important; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s; padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-links a.active { color: var(--green); border-bottom: 1px solid var(--green); }
+.vg-toggler { border: 1px solid #333; background: transparent; padding: 6px 8px; border-radius: 3px; }
+.vg-toggler:focus { box-shadow: none; outline: none; }
+.toggler-bar { display: block; width: 22px; height: 2px; background: var(--muted); margin: 4px 0; transition: background 0.2s; }
+.vg-toggler:hover .toggler-bar { background: #fff; }
+@media (max-width: 767px) {
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 0; }
+}
+ 
+/* ── HEADER ── */
+header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+}
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; color: #fff;
+  letter-spacing: 0.02em; margin-bottom: 0.4rem;
+}
+header h2 {
+  font-size: 1rem; font-weight: 300;
+  font-style: italic; color: var(--muted);
+}
+ 
+/* ── SECCIONES ── */
+section { padding: 3rem 0; }
+section + section { border-top: 1px solid var(--border); }
+ 
+/* ── FORMULARIO ── */
+.form-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.form-control, .form-select {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  border-radius: 4px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--bg2) !important;
+  border-color: var(--green) !important;
+  box-shadow: 0 0 0 2px var(--green-glow) !important;
+  outline: none;
+  color: #fff !important;
+}
+.form-control::placeholder { color: #444 !important; }
+ 
+/* Checkboxes */
+.form-check { margin-bottom: 0.4rem; }
+.form-check-label {
+  font-size: 0.9rem; font-weight: 300;
+  color: var(--text); cursor: pointer;
+}
+.form-check-input {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border) !important;
+  cursor: pointer;
+}
+.form-check-input:checked {
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+}
+.form-check-input:focus { box-shadow: none !important; }
+ 
+/* Botón unirse */
+#btn-unirse {
+  margin-top: 1.5rem;
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.7rem 2rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  position: relative; overflow: hidden; z-index: 1;
+}
+#btn-unirse::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--green);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s ease;
+  z-index: -1;
+}
+#btn-unirse:hover { color: #000; }
+#btn-unirse:hover::before { transform: scaleX(1); }
+ 
+/* ── SECCIÓN TINDER ── */
+#seccion-tinder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+ 
+#contador-fans {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted);
+}
+ 
+/* ── CARD TINDER ── */
+.tinder-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease;
+}
+.tinder-card:hover { transform: translateY(-4px); }
+ 
+.tinder-foto {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+ 
+.tinder-nombre {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: #fff; padding: 1.2rem 1.2rem 0.2rem;
+  margin: 0;
+}
+ 
+.tinder-personaje {
+  font-size: 0.9rem; color: var(--green);
+  padding: 0 1.2rem; margin: 0 0 0.4rem;
+}
+ 
+.tinder-series {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.2em;
+  color: var(--muted); padding: 0 1.2rem;
+  margin: 0 0 0.75rem;
+}
+ 
+.tinder-descripcion {
+  font-size: 0.88rem; font-weight: 300;
+  line-height: 1.6; color: #aaa;
+  padding: 0 1.2rem; margin: 0 0 0.75rem;
+}
+ 
+.tinder-contacto {
+  font-size: 0.82rem; color: var(--muted);
+  padding: 0 1.2rem; margin: 0 0 0.4rem;
+}
+ 
+/* ── BOTONES SKIP / LIKE ── */
+.botones-tinder {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+ 
+#btn-skip, #btn-like {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  font-size: 1.6rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background: var(--card-bg);
+}
+ 
+#btn-skip:hover {
+  transform: scale(1.1);
+  border-color: #e74c3c;
+  box-shadow: 0 0 20px rgba(231,76,60,0.3);
+}
+ 
+#btn-like:hover {
+  transform: scale(1.1);
+  border-color: var(--green);
+  box-shadow: 0 0 20px var(--green-glow);
+}
+ 
+/* ── SECCIÓN MATCHES ── */
+#seccion-matches h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: #fff; margin-bottom: 2rem;
+}
+ 
+#grilla-matches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+ 
+/* ── MATCH CARD ── */
+.match-card {
+  background: var(--card-bg);
+  border: 1px solid var(--green);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(57,211,83,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.match-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(57,211,83,0.15);
+}
+ 
+.match-foto {
+  width: 100%; height: 200px;
+  object-fit: cover; display: block;
+  border-bottom: 1px solid var(--border);
+}
+ 
+.match-nombre {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: #fff; padding: 1rem 1rem 0.2rem; margin: 0;
+}
+ 
+.match-personaje {
+  font-size: 0.82rem; color: var(--green);
+  padding: 0 1rem; margin: 0 0 0.3rem;
+}
+ 
+.match-series {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.15em;
+  color: var(--muted); padding: 0 1rem; margin: 0 0 0.5rem;
+}
+ 
+.match-descripcion {
+  font-size: 0.82rem; font-weight: 300;
+  line-height: 1.6; color: #aaa;
+  padding: 0 1rem; margin: 0 0 0.5rem;
+}
+ 
+.match-contacto {
+  font-size: 0.8rem; color: var(--muted);
+  padding: 0 1rem; margin: 0 0 0.4rem;
+}
+ 
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 0.8rem; font-weight: 300;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  margin-top: 4rem;
+}
+.footer-links { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--green); }

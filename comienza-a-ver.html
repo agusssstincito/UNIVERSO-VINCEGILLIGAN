@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comenzá a Ver — El Universo de Vince Gilligan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="comienza-a-ver.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md sticky-top vg-navbar">
+    <div class="container-fluid px-4">
+      <a href="index.html" class="navbar-brand nav-brand">VG Universe</a>
+      <button class="navbar-toggler vg-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Navegación">
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <div class="nav-links ms-auto">
+          <a href="index.html">INICIO</a>
+          <a href="BB.html">Breaking Bad</a>
+          <a href="BCS.html">Better Call Saul</a>
+          <a href="EC.html">El Camino</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="comienza-a-ver.html" class="active">¡COMIENZA A VER!</a>
+          <a href="comunidad.html">COMUNIDAD</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container-xl px-3 px-md-4">
+      <h1>¿Qué querés ver?</h1>
+      <h2>El universo de Vince Gilligan te espera</h2>
+    </div>
+  </header>
+
+  <main>
+    <section id="galeria-series" class="container-xl px-3 px-md-4">
+      <div class="serie-card" data-serie="bcs">
+        <img src="https://www.freelogovectors.net/wp-content/uploads/2023/09/better-call-saul-logo-freelogovectors.net_.png" alt="Better Call Saul">
+        <h3>Better Call Saul</h3>
+      </div>
+
+      <div class="serie-card" data-serie="bb">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Breaking_Bad_logo.svg/1280px-Breaking_Bad_logo.svg.png" alt="Breaking Bad">
+        <h3>Breaking Bad</h3>
+      </div>
+
+      <div class="serie-card" data-serie="ec">
+        <img src="https://image.tmdb.org/t/p/original/qfAuSn7X34Ut09UqbxxXIEUAgaK.png" alt="El Camino">
+        <h3>El Camino</h3>
+      </div>
+
+    </section>
+
+    <hr>
+    <hr>
+    
+    <section id="detalle-serie" class="container-xl px-3 px-md-4">
+    </section>
+
+    <script src="comienza-a-ver.js"></script>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

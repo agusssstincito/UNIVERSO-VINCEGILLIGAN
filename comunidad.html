@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad — El Universo de Vince Gilligan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="comunidad.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md sticky-top vg-navbar">
+    <div class="container-fluid px-4">
+      <a href="index.html" class="navbar-brand nav-brand">VG Universe</a>
+      <button class="navbar-toggler vg-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Navegación">
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+        <span class="toggler-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <div class="nav-links ms-auto">
+          <a href="index.html">INICIO</a>
+          <a href="BB.html">Breaking Bad</a>
+          <a href="BCS.html">Better Call Saul</a>
+          <a href="EC.html">El Camino</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="comienza-a-ver.html">¡COMIENZA A VER!</a>
+          <a href="comunidad.html" class="active">Comunidad</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container-xl px-3 px-md-4">
+      <h1>¡Conocé gente que ame tanto a Vince como vos!</h1>
+      <h2>El universo de Vince Gilligan te espera</h2>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="container-xl px-3 px-md-4">
+      <form>
+        <div class="mb-3">
+          <label for="input-nombre" class="form-label">NOMBRE COMPLETO</label>
+          <input type="text" class="form-control" id="input-nombre">
+        </div>
+
+        <div class="mb-3">
+          <label for="input-personaje" class="form-label">PERSONAJE FAVORITO</label>
+          <input type="text" class="form-control" id="input-personaje">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">SERIES QUE VIO</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input check-serie" id="check-bb" data-serie="bb">
+            <label class="form-check-label" for="check-bb">Breaking Bad</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input check-serie" id="check-bcs" data-serie="bcs">
+            <label class="form-check-label" for="check-bcs">Better Call Saul</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input check-serie" id="check-ec" data-serie="ec">
+            <label class="form-check-label" for="check-ec">El Camino</label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="input-descripcion" class="form-label">DESCRIPCIÓN</label>
+          <textarea class="form-control" id="input-descripcion" rows="4"></textarea>
+        </div>
+
+        <div>
+            <label for="input-instagram">Tu instagram (opcional)</label>
+            <input type="text" class="form-control" id="input-instagram">
+        </div>
+
+        <div>
+            <label for="input-discord" class="form-label">Tu discord (opcional)</label>
+            <input class="form-control" type="text" name="" id="input-discord">
+        </div>
+
+        <div>
+            <label for="url-foto" class="form-label">FOTO DE PERFIL (opcional)</label>
+            <input type="text" class="form-control" id="input-foto" placeholder="https://...">>
+        </div>
+
+        <div class="mb-3">
+            <label for="input-edad" class="form-label">EDAD</label>
+            <input type="number" class="form-control" id="input-edad" min="13" max="99">
+        </div>
+        <div class="mb-3">
+            <label for="edad-min" class="form-label">RANGO DE EDAD</label>
+            <div class="d-flex gap-3 align-items-center">
+                <input type="number" class="form-control" id="edad-min" placeholder="Mín" min="18" max="99">
+                <span class="text-muted">—</span>
+                <input type="number" class="form-control" id="edad-max" placeholder="Máx" min="18" max="99">
+            </div>
+        </div>
+        <small class="text-muted">⚠️ Estos datos serán públicos para otros fans.</small>
+        
+        <button type="button" class="btn" id="btn-unirse">Unirme a la comunidad</button>
+         
+       
+
+      </form>
+    </section>
+
+    <section id="seccion-tinder" class="container-xl px-3 px-md-4 mt-5" style="display: none;">
+        <span id="contador-fans">MATCHES ENCONTRADOS</span>
+        <div id="card-tinder"></div>
+        <div class="botones-tinder">
+            <button id="btn-skip">❌</button>
+            <button id="btn-like">❤️</button>
+        </div>
+    </section>
+
+    <section id="seccion-matches" style="display: none" class="container-xl px-3 px-md-4 mt-5">
+        <h1>Tus Matches</h1>
+        <div style="display: grid;" id="grilla-matches"></div>
+    </section>
+
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="comunidad.js"></script>
+</body>
+</html>

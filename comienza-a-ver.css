@@ -1,0 +1,212 @@
+
+:root {
+  --green:      #39d353;
+  --green-dim:  #1f7a30;
+  --green-glow: rgba(57, 211, 83, 0.18);
+  --bg:         #080808;
+  --bg2:        #0f0f0f;
+  --border:     #1e1e1e;
+  --text:       #e4e4e4;
+  --muted:      #777;
+  --card-bg:    #111;
+}
+ 
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; }
+ 
+/* ── NAVBAR (igual que en el resto del sitio) ── */
+.vg-navbar {
+  background: rgba(8,8,8,0.96) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding-top: 0.9rem; padding-bottom: 0.9rem;
+}
+.nav-brand {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted) !important; text-decoration: none; transition: color 0.2s;
+}
+.nav-brand:hover { color: #fff !important; }
+.nav-links { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 400;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.2s; padding-bottom: 2px;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-links a.active { color: var(--green); border-bottom: 1px solid var(--green); }
+ 
+.vg-toggler { border: 1px solid #333; background: transparent; padding: 6px 8px; border-radius: 3px; }
+.vg-toggler:focus { box-shadow: none; outline: none; }
+.toggler-bar { display: block; width: 22px; height: 2px; background: var(--muted); margin: 4px 0; transition: background 0.2s; }
+.vg-toggler:hover .toggler-bar { background: #fff; }
+ 
+@media (max-width: 767px) {
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1rem 0; }
+}
+ 
+/* ── HEADER ── */
+header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+}
+header h1 {
+  font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700; color: #fff; letter-spacing: 0.02em; margin-bottom: 0.5rem;
+}
+header h2 {
+  font-size: 1.05rem; font-weight: 300; font-style: italic; color: var(--muted);
+}
+ 
+/* ── GALERÍA DE SERIES ── */
+#galeria-series {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
+ 
+.serie-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.serie-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--green);
+  box-shadow: 0 16px 40px rgba(57,211,83,0.12);
+}
+.serie-card.activa {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+ 
+.serie-card img {
+  max-width: 100%;
+  max-height: 110px;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+.serie-card:hover img { filter: brightness(1.1); }
+ 
+.serie-card h3 {
+  font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600;
+  letter-spacing: 0.04em; color: #fff; margin: 0;
+}
+ 
+/* ── SECCIÓN DETALLE (la que arma JS dinámicamente) ── */
+#detalle-serie {
+  padding: 3rem 0 5rem;
+  border-top: 1px solid var(--border);
+}
+ 
+#detalle-serie:empty { display: none; } /* si está vacía, no ocupa espacio */
+ 
+#detalle-serie h2 {
+  font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 600;
+  color: var(--green); letter-spacing: 0.03em; margin-bottom: 1.5rem;
+}
+ 
+#detalle-serie img {
+  max-width: 280px;
+  width: 100%;
+  display: block;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 16px rgba(57,211,83,0.15));
+}
+ 
+/* ── CHECKLIST DE TEMPORADAS ── */
+#checklist-temporadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+ 
+#checklist-temporadas label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+#checklist-temporadas label:hover {
+  border-color: var(--green-dim);
+  background: #161616;
+}
+ 
+#checklist-temporadas input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+ 
+/* Cuando el checkbox está tildado, resaltamos el label completo */
+#checklist-temporadas label:has(input:checked) {
+  border-color: var(--green);
+  background: rgba(57,211,83,0.06);
+  color: #fff;
+}
+ 
+/* ── CALCULADORA ── */
+#detalle-serie > p {
+  font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+  letter-spacing: 0.05em; color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+ 
+#episodiosPorDia {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  width: 100px;
+  font-family: 'Barlow', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#episodiosPorDia:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px var(--green-glow);
+}
+ 
+#btnCalcular {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.6rem;
+  border-radius: 4px;
+  margin-left: 0.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+#btnCalcular:hover {
+  background: var(--green);
+  color: #000;
+}
+ 
+#resultadoCalculo {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  min-height: 1.5rem;
+}
+ 
